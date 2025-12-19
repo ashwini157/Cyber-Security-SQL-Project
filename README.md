@@ -52,37 +52,6 @@ This project covers the following SQL concepts:
 
 ---
 
-##  Sample SQL Queries
-
-### 1️⃣ Total Cyber Attacks by Country
-
-```sql
-SELECT country, COUNT(*) AS total_attacks
-FROM cyber_security
-GROUP BY country
-ORDER BY total_attacks DESC;
-```
-
-### 2️⃣ Total Financial Loss by Attack Type
-
-```sql
-SELECT attack_type, SUM(financial_loss) AS total_loss
-FROM cyber_security
-GROUP BY attack_type
-ORDER BY total_loss DESC;
-```
-
-### 3️⃣ Average Resolution Time by Year
-
-```sql
-SELECT year, AVG(resolution_time) AS avg_resolution_time
-FROM cyber_security
-GROUP BY year
-ORDER BY year;
-```
-
----
-
 ## Key Insights (Example)
 
 * Certain countries experience a significantly higher number of cyber attacks
