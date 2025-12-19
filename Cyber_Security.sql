@@ -10,6 +10,7 @@ FROM global_cybersecurity_threft
 GROUP BY country
 ORDER BY total_loss DESC
 LIMIT 5;
+
 # (ii) Target_industry Group By total_attack
 SELECT Target_industry, COUNT(*) AS total_attacks
 FROM global_cybersecurity_threft
@@ -79,6 +80,7 @@ CREATE TABLE attack_source_info (
   source_category VARCHAR(50),    -- e.g. ‘External’, ‘Internal’
   description    VARCHAR(500)
 );
+
 INSERT INTO attack_source_info (attack_source, source_category, description) VALUES
 ('Insider',      'Internal', 'Employees or contractors misusing access'),
 ('Nation-state', 'External','Government-sponsored actors'),
@@ -91,6 +93,7 @@ SELECT gct.year, gct.country, gct.attack_type, gct.attack_source,
 FROM global_cybersecurity_threft AS gct
 JOIN attack_source_info AS asi
   ON gct.attack_source = asi.attack_source;
+
 # Incident Resoluction Time  and no. of affected users
 CREATE TABLE resolution_time_category (
   category_id INT PRIMARY KEY,
@@ -98,6 +101,7 @@ CREATE TABLE resolution_time_category (
   min_time INT,
   max_time INT
 );
+
 INSERT INTO resolution_time_category VALUES
 (1, 'Fast', 0, 24),
 (2, 'Moderate', 25, 72),
@@ -108,6 +112,7 @@ CREATE TABLE user_impact_category (
   min_users INT,
   max_users INT
 );
+
 INSERT INTO user_impact_category VALUES
 (1, 'Low Impact', 0, 999),
 (2, 'Medium Impact', 1000, 9999),
